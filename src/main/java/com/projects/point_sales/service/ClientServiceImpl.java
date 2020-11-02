@@ -10,21 +10,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ClientServiceImplement implements ClientService {
+public class ClientServiceImpl implements ClientService {
 
     @Autowired
     ClientRepository clientRepository;
 
     @Override
     public void save() {
-        Client client = new Client();
-        client.setName("Test");
-        client.setAddress("Test address");
-        client.setDocument("12345678");
-        client.setLastnames("Test lastnames");
-        client.setState(1);
-
+    	try {
+    	Client client =new Client();
+    	client.setDocument("123223123");
+    	client.setEmail("asdasdas");
+    	client.setName("piratas");
+    	client.setLastnames("cerpa");
+    	client.setState(1);
         clientRepository.save(client);
+    	}catch (Exception e) {
+			System.out.println(e.toString());
+		}
     }
 
     @Override

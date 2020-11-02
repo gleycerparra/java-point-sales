@@ -4,6 +4,6 @@ import com.projects.point_sales.model.Client;
 
 import org.springframework.data.repository.CrudRepository;
 
-public interface ClientRepository extends CrudRepository<Client, Integer>{
+public interface ClientRepository extends CrudRepository<Client, Long>{
     
 }

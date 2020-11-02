@@ -1,4 +1,5 @@
 package com.projects.point_sales.model;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.projects.point_sales.constants.Constants;
 
 import java.util.Date;
