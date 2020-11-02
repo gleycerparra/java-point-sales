@@ -10,7 +10,7 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 public class Client {
-
+ 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
