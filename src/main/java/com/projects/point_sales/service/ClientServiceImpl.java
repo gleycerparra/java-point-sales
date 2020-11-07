@@ -1,8 +1,9 @@
 package com.projects.point_sales.service;
 
-import java.util.Date;
 import java.util.List;
 
+import com.projects.point_sales.dto.ClientRequestDTO;
+import com.projects.point_sales.dto.ClientRequestUpdateDTO;
 import com.projects.point_sales.model.Client;
 import com.projects.point_sales.repository.ClientRepository;
 
@@ -16,42 +17,53 @@ public class ClientServiceImpl implements ClientService {
     ClientRepository clientRepository;
 
     @Override
-    public void save() {
-    	try {
-    	Client client =new Client();
-    	client.setDocument("123223123");
-    	client.setEmail("asdasdas");
-    	client.setName("piratas");
-    	client.setLastnames("cerpa");
-    	client.setState(1);
-        clientRepository.save(client);
-    	}catch (Exception e) {
-			System.out.println(e.toString());
-		}
+    public Client save(ClientRequestDTO clientRequestDTO) {
+        try {
+            Client client = new Client();
+            client.setDocument(clientRequestDTO.getDocument());
+            client.setName(clientRequestDTO.getName());
+            client.setLastnames(clientRequestDTO.getLastnames());
+            client.setState(clientRequestDTO.getState());
+            return clientRepository.save(client);
+        } catch (Exception e) {
+            System.out.println(e.toString());
+
+            return null;
+        }
     }
 
     @Override
-    public void update() {
-        // TODO Auto-generated method stub
+    public Client update(ClientRequestUpdateDTO clientRequestUpdateDO) {
+
+        try {
+            Client client = new Client();
+            client.setId(clientRequestUpdateDO.getId());
+            client.setDocument(clientRequestUpdateDO.getDocument());
+            client.setName(clientRequestUpdateDO.getName());
+            client.setLastnames(clientRequestUpdateDO.getLastnames());
+            client.setState(clientRequestUpdateDO.getState());
+            return clientRepository.save(client);
+        } catch (Exception e) {
+            System.out.println(e.toString());
+
+            return null;
+        }
 
     }
 
     @Override
-    public Client getClient() {
-        // TODO Auto-generated method stub
-        return null;
+    public Client getClient(Integer id) {
+        return clientRepository.findClientById(id);
     }
 
     @Override
     public List<Client> getClients() {
-        // TODO Auto-generated method stub
-        return null;
+        return clientRepository.findAll();
     }
 
     @Override
-    public void delete() {
-        // TODO Auto-generated method stub
-
+    public void deleteById(Integer id) {
+        clientRepository.deleteById(id);
     }
 
 }

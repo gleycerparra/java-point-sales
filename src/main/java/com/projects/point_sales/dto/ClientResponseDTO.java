@@ -1,59 +1,19 @@
-package com.projects.point_sales.model;
+package com.projects.point_sales.dto;
 
 import java.util.Date;
-import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 
-import com.projects.point_sales.constant.Constant;
+public class ClientResponseDTO {
 
-@Entity
-public class Client {
- 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private Integer id;
-
-    @Column(length = 50, name = "document")
-    @NotNull(message = Constant.MESSAGE_NOT_NULL)
-    @NotBlank(message = Constant.MESSAGE_NOT_BLANK)
-    @NotEmpty(message = Constant.MESSAGE_NOT_EMPTY)
     private String document;
-
-    @Column(length = 50, name = "name")
-    @NotNull(message = Constant.MESSAGE_NOT_NULL)
-    @NotBlank(message = Constant.MESSAGE_NOT_BLANK)
-    @NotEmpty(message = Constant.MESSAGE_NOT_EMPTY)
     private String name;
-
-    @Column(length = 50, name = "lastnames")
-    @NotNull(message = Constant.MESSAGE_NOT_NULL)
-    @NotBlank(message = Constant.MESSAGE_NOT_BLANK)
-    @NotEmpty(message = Constant.MESSAGE_NOT_EMPTY)
     private String lastnames;
-
-    @Column(length = 50, name = "address")
     private String address;
-
-    @Column(name = "phone")
     private String phone;
-
-    @Column(name = "mobilePhone")
     private String mobilePhone;
-
-    @Column(name = "email")
     private String email;
-
-    @Column(name = "createdAt")
     private Date createdAt;
-
-    @Column(name = "updatedAt")
     private Date updatedAt;
-
-    @Column(name = "state")
-    @NotNull(message = Constant.MESSAGE_NOT_NULL)
     private Integer state;
 
     public Integer getId() {
@@ -143,6 +103,5 @@ public class Client {
     public void setState(Integer state) {
         this.state = state;
     }
-
 
 }
